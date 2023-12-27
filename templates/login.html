@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block lab %}{% endblock %}
+
+{% block main %}
+    <div style="text-align: center; font-size: 24px; margin-bottom: 20px; margin-top: 50px; font-weight: 700; font-size: xx-large;">Вход</div>
+    <div style="text-align: center; font-size: 18px; margin-bottom: 20px; font-weight: 400; font-size: x-large;">Пожалуйста, авторизуйтесь</div>
+
+    {% if errors %}
+        <span class="error" style="color: red;">{{ errors }}</span>
+    {% endif %}
+    <form action="/login" method="post" style="margin: 50px auto; max-width: 300px; padding: 20px; background-color: lightgray; border-radius: 10px;">
+        <div style="margin-bottom: 20px;">
+            <label for="username" style="font-size: 16px; margin-right: 10px;">Имя пользователя:</label>
+            <input type="text" id="username" name="username" style="padding: 10px; font-size: 16px; border-radius: 5px; width: 100%;" required>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <label for="password" style="font-size: 16px; margin-right: 10px;">Пароль:</label>
+            <input type="password" id="password" name="password" style="padding: 10px; font-size: 16px; border-radius: 5px; width: 100%;" required>
+        </div>
+        <button type="submit" style="padding: 10px 20px; border: none; border-radius: 5px; width: 100%; font-size: larger;">авторизуйтесь</button>
+    </form> 
+{% endblock %}

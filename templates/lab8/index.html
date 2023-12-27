@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block lab %}РЕЦЕПТЫ{% endblock %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+{% block script %}
+    <script src="{{ url_for('static', filename='lab8/main.js') }}"></script>
+    
+{% endblock %}
+
+{% block main %}
+{% if 'username' in session %}
+    <div>
+        <label for="searchByName" style="font-size: 16px; margin-right: 10px; font-size: larger; font-weight: 400;">Поиск по названию:</label>
+        <input type="text" style="padding: 10px; font-size: 16px; border-radius: 5px; margin: 10px;" required id="searchByName" oninput="filterCourses()">
+    </div>
+
+    <div>
+        <label for="searchByIngredient" style="font-size: 16px; margin-right: 10px; font-size: larger; font-weight: 400;">Поиск по ингредиентам:</label>
+        <input type="text" id="searchByIngredient" style="padding: 10px; font-size: 16px; border-radius: 5px; margin: 10px;" required id="searchByName" oninput="filterCourses()">
+    </div>
+    <h1>Список блюд</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="header">Блюдо</th>
+                <th class="header">Ингридиенты </th>
+                <th class="header">Как готовить</th>
+                <th class="header">Что получится</th>
+               
+            </tr>
+        </thead>
+        
+        <tbody id="course-list">
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.videos }}</td>
+                    <td>{{ course.price }}</td>
+                    <td><img src="{{ url_for('static', filename=course.photo) }}" alt="{{ course.name }} photo"></td>
+                    <td>
+                        <button onclick="editCourse({{ loop.index0 }})">Редактировать</button>
+                        <button onclick="deleteCourse({{ loop.index0 }})">Удалить</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+
+<!-- скрипт для поиска -->
+    <script>
+        fillCourseList();
+        function filterCourses() {
+            var searchByName = document.getElementById('searchByName').value.toLowerCase();
+            var searchByIngredient = document.getElementById('searchByIngredient').value.toLowerCase();
+
+            var courseList = document.getElementById('course-list');
+            var courses = courseList.getElementsByTagName('tr');
+
+            for (var i = 0; i < courses.length; i++) {
+                var course = courses[i];
+                var name = course.getElementsByTagName('td')[0].innerText.toLowerCase();
+                var ingredient = course.getElementsByTagName('td')[1].innerText.toLowerCase();
+
+                if (name.includes(searchByName) && ingredient.includes(searchByIngredient)) {
+                    course.style.display = 'table-row';
+                } else {
+                    course.style.display = 'none';
+                }
+            };
+        }
+    </script>
+    <div style="margin: 20px;">
+        
+    </div>
+
+
+    <div class="modal">
+        <input type="hidden" id="num" value="">
+        <label>Название рецепта:
+            <input type="text" id="name">
+        </label><br>
+    
+        <label>Ингредиенты:
+            <input type="text" id="videos">
+        </label><br>
+    
+        <label>Шаги приготовления:
+            <input type="text" id="price">
+        </label><br>
+        
+        <button onclick="addCourse()">Добавить рецепт</button>
+        <button onclick="hideModal()">Отмена</button>
+    </div>
+{% else %}
+    <p>Сначало войдите!</p>
+{% endif %}
+{% endblock %}
+
+    

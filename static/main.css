@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.8px;
+    font-size: 16px;
+    line-height: 26px;
+    color: #333333;
+    padding-bottom: 72px;
+    
+    
+}
+
+p {
+    max-width: 800px;
+    margin-top: 12px;
+}
+
+h1 {
+    font-size: 42px;
+    line-height: 56px;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+header {
+    padding: 24px;
+    background-color: #7FFFD4;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+main {
+    padding-left: 24px;
+    padding-right: 24px;
+
+}
+
+footer {
+    padding: 24px;
+    background-color: #7FFFD4; 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:bolder;
+    
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: #0f7afc;
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(15, 122, 252, 0.2);
+}
+a:hover {
+    text-decoration: none;
+    color: #cf0000;
+    border-bottom-color: rgba(208, 64, 0, 0.2);
+}
+a:visited {
+    text-decoration: none;
+    color: #800080;
+    border-bottom-color: rgba(128, 0, 128, 0.2);
+}
+
+.btn {
+    border-radius: 12px;
+    color: white;
+    background-color: #00b762; /* красивый аквамариновый цвет */
+    padding: 10px 12px;
+    border: 0;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    border-radius: 12px;
+    color: white;
+    background-color: #4dd1aa; /* Темнее оттенок аквамаринового цвета */
+    padding: 10px 12px;
+    border: 0;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+button:hover {
+    background-color: #2a6e59; 
+}
+
+.label {
+    color: #676767;
+    font-size: larger;
+
+
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    colgroup::after;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid black;
+  }
+  
+  tr:hover {
+    background-color: aquamarine;
+  }
+
+
+  .modal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .modal label,
+  .modal button {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .modal button {
+    flex: none;
+    font-size: x-large;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: #4dd1aa;
+    color: white;
+    border: none;
+  }
+  
+  .modal button:hover {
+    background-color: #2a6e59;
+  }
+
+  .footer-content {
+    position: relative;
+}
+
+#scroll-to-bottom {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    
+    background-image: url('/static/images/strelka.png');
+    background-size: cover;
+    opacity: 0.8;
+    display: none;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block lab %}{% endblock %}</title>
+    <link rel="stylesheet", type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    {% if request.cookies.get('color') or request.cookies.get('background-color') or request.cookies.get('font-size') %}
+        <style>
+/*             body {
+                background-color: {{request.cookies.get('background-color')}};
+                font-size: {{request.cookies.get('font-size')}};
+                color: {{request.cookies.get('color')}};
+            } */
+        </style>
+    {% endif %}
+    {% block script %}{% endblock %}
+</head>
+<body>
+    <header>
+        РЕЦЕПТЫ ОТ ВЛАДИКА    {% if 'username' in session %}  <form action="/logout" method="post";">
+            <button type="submit"; style="margin-left: 90%; font-size: x-large; margin-top: 0px; margin-bottom: 0px;">Logout</button>
+        </form>
+        {% endif %}
+    </header>
+    <main>
+        
+        {% block main%}{% endblock %}
+    </main>
+    <footer>
+        &copy; Гавра В.А. РГЗ по WEB-программированию <a href="#" id="scroll-to-bottom"></a>
+    </footer>
+</body>
+</html>
+

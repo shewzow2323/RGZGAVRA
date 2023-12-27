@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block lab %}Лабораторная работа №7{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='lab7/drink.js') }}"></script>
+{% endblock %}
+
+{% block main %}
+    <div id="calc">
+        <h1>Заказ напитка</h1>
+        <div>Напиток:</div>
+        <label>
+            <input type="radio" value="coffee" name = "drink" checked>Кофе
+        </label>
+        <label>
+            <input type="radio" value="black-tea" name = "drink" checked>Черный чай
+        </label>
+        <label>
+            <input type="radio" value="green-tea" name = "drink" checked>Зеленый чай
+        </label>
+
+        <div>Добавки:</div>
+        <label>
+            <input type="checkbox" name = "milk" checked>Молоко
+        </label>
+        <label>
+            <input type="checkbox" name = "sugar" checked>Сахар
+        </label>
+
+        <div>
+            <button onclick="getPrice()">Рассчитать цену</button>
+        </div>
+    </div>
+
+    <div id="price" style="margin-top: 16px; display: block;"></div>
+
+    <div id="pay" style="display: none; margin-top: 16px;">
+        <label>Номер карты<br>
+            <input type="text" maxlength="16" name = "card_number"><br>
+        </label>
+        <label>CVV<br>
+            <input type="text" maxlength="3" name = "cvv"><br>
+        </label>
+    </div>
+    <div id="pay_result" style="display: none;"></div>
+    <div id="error" style="display: none;"></div>
+    <div>
+        <button onclick="Pay()" type="button" id="order" style="display: none; margin-top: 16px;">Заказать</button>
+    </div>
+    <div>
+        <button onclick="Refund()" type="button" id="refund" style="display: none; margin-top: 16px;">Отмена оплаты</button>
+    </div>
+{% endblock %}

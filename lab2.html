@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1
+        let A = 3;
+        let B = 12;
+        let C = 6;
+
+        if (A < B && B < C) {
+            A *= 2
+            B *= 2
+            C *= 2
+            console.log(A, B, C)
+        }
+        else {
+            console.log(A, B, C)
+        };
+
+        // 2
+        let N = 12;
+        let K = 6;
+
+        for (let i = 0; i <= K; i++) {
+            console.log(N);
+        };
+
+        // 3
+        let M = 5;
+        let L = 6;
+
+        if (M >= 0 && L >= 0) {
+            let summ = 0;
+            for (let i = 0; i < M; i++) {
+                summ += (i**L)
+            }
+            console.log(summ);
+        }
+        else {
+            console.log('Числа не положительные')
+        };
+
+    </script>
+</body>
+</html>

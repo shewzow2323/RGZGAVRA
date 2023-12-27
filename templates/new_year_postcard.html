@@ -1,0 +1,35 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>Новогодняя открытка</title>
+  </head>
+  <body>
+    <form>
+      <label for="recipient_name">Имя получателя:</label><br>
+      <input type="text" id="recipient_name" name="recipient_name" value="{{ recipient_name }}"><br>
+      <label for="recipient_gender">Пол получателя:</label><br>
+      <input type="text" id="recipient_gender" name="recipient_gender" value="{{ recipient_gender }}"><br>
+      <label for="sender_name">Имя отправителя:</label><br>
+      <input type="text" id="sender_name" name="sender_name" value="{{ sender_name }}"><br><br>
+      <input type="submit" value="Создать открытку">
+    </form>
+    <br>
+    {% if recipient_name and recipient_gender and sender_name %}
+      {% if recipient_gender.lower() == 'мужской' %}
+        <p>Уважаемый {{ recipient_name }},<br> Желаем вам счастья и удачи в новом году! <br>С наилучшими пожеланиями, <br>{{ sender_name }}</p>
+      {% else %}
+        <p>Уважаемая {{ recipient_name }},<br> Желаем вам счастья и удачи в новом году! <br>С наилучшими пожеланиями, <br>{{ sender_name }}</p>
+      {% endif %}
+    {% endif %}
+    <style>
+      body {
+        background-image: url('/static/images/new).jpg');
+        background-size: cover;
+        color: white;
+     
+
+      }
+      }
+  </body>
+</html>
